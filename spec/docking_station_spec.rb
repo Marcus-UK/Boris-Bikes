@@ -8,6 +8,8 @@ describe DockingStation do
     expect(bike).to be_working
   end
    it 'docks bike' do
-    expect(:dock).to eq("docked")
+     bike = Bike.new
+    expect(subject.dock(bike)).to eq(bike)
   end
+  
 end
