@@ -8,7 +8,7 @@ class DockingStation
   end
 
   def release_bike
-    raise "This is a fail" unless @bike
+    raise "This is a fail" if empty?
     #raise "This is a fail" if !working?
     @bike
     end
@@ -16,7 +16,18 @@ class DockingStation
       #raise "this is a fail" if @bikes == 0
 
   def dock(bike)
-    fail 'Dock full' if @bikes.count >=20
+    fail 'Dock full' if full?
     @bikes << bike
   end
+
+private
+
+def full?
+  @bikes.count >= 20
+end
+
+def empty?
+  @bikes.empty?
+end
+
 end
