@@ -2,7 +2,6 @@ require './lib/docking_station.rb'
 
 describe DockingStation do
 
-  
   describe '#dock' do
    it 'docks bike' do
      bike = Bike.new
@@ -23,7 +22,7 @@ end
 
    it "Tells you that Dock is full" do
 
-    20.times  {subject.dock Bike.new}
+    DockingStation::DEFAULT_CAPACITY.times  {subject.dock Bike.new}
 
      expect {subject.dock Bike.new}.to raise_error 'Dock full'
    end
